@@ -2,6 +2,7 @@
 #include <string.h>
 #include "strings.h"
 
+//Brian
 void test_strlen()
 {
     printf("====Testing my_strlen()====\n");
@@ -31,14 +32,34 @@ void test_strcat()
     printf("====Testing my_strcat()====\n");
     char *test1 = "Do you remember,";
     src = " the 21st night of September?";
-    strcpy(dest1, test1); strcpy(dest2, test1); 
+    strcpy(dest1, test1); strcpy(dest2, test1);
     printf("[mine]: %s\n", my_strcat(dest1, src));
     printf("[standard]: %s\n\n", strcat(dest2, src));
 }
 
+
+//Alex
+void test_strncpy()
+{
+    // TODO: more test cases
+    char dest1[255];
+    char dest2[255];
+    char *replace;
+
+    printf("====Testing my_strncpy()====\n");
+    char *test1 = "I really like you";
+    replace = "I don't  like you";
+    strcpy(dest1, test1); strcpy(dest2, test1);
+    printf("[standard]: %s\n\n", strncpy(dest2, replace, 8));
+    printf("[mine]: %s\n", my_strncpy(dest1, replace, 8));
+}
+
 int main()
 {
+    //Brian
     test_strlen();
     test_strcat();
+    //Alex
+    test_strncpy();
     return 0;
 }
