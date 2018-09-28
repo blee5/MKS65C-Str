@@ -1,9 +1,9 @@
-int strlen(char* s)
+int my_strlen(char *s)
 {
     int len = 0;
-    while(s++)
+    while(*s++)
     {
         len++;
     }
-    return len
+    return len;
 }
