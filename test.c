@@ -30,7 +30,7 @@ void test_strcat()
 
     printf("====Testing my_strcat()====\n");
     char *test1 = "Do you remember,";
-    src = " the 21sth night of September?";
+    src = " the 21st night of September?";
     strcpy(dest1, test1); strcpy(dest2, test1); 
     printf("[mine]: %s\n", my_strcat(dest1, src));
     printf("[standard]: %s\n\n", strcat(dest2, src));
