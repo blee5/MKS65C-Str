@@ -12,4 +12,4 @@ strings.o: strings.c
 
 clean:
 	rm *.o
-	rm a.out
+	rm string_functions_test
