@@ -23,13 +23,17 @@ void test_strlen()
 
 void test_strcat()
 {
-    printf("====Testing my_strcat()====\n");
-    
-    char dest1_1[255] = "Do you remember";
-    char dest1_2[255] = "Do you remember";
+    // TODO: more test cases
+    char dest1[255];
+    char dest2[255];
+    char *src;
 
-    printf("[mine]: %s\n", my_strcat(dest1_1, " the 21th night of September"));
-    printf("[standard]: %s\n\n", strcat(dest1_2, " the 21th night of September"));
+    printf("====Testing my_strcat()====\n");
+    char *test1 = "Do you remember,";
+    src = " the 21sth night of September?";
+    strcpy(dest1, test1); strcpy(dest2, test1); 
+    printf("[mine]: %s\n", my_strcat(dest1, src));
+    printf("[standard]: %s\n\n", strcat(dest2, src));
 }
 
 int main()

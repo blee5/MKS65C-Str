@@ -1,4 +1,4 @@
-int my_strlen(char *s)
+int my_strlen(const char *s)
 {
     int len = 0;
     while (*s++)
@@ -8,19 +8,13 @@ int my_strlen(char *s)
     return len;
 }
 
-char* my_strcat(char *dest, char *source)
+char* my_strcat(char *dest, const char *source)
 {
     char *p = dest;
-    // find null terminator
-    while (*p)
-    {
-        p++;
-    }
-    // add source string including the null terminator
-    //while (*p = *source++);
-    while (*source)
-    {
-        *p++ = *source++;
-    }
+    while (*p++);
+    // decrement because p++ makes p now point to the character
+    // after the null terminator, which we need to write over
+    p--;
+    while (*p++ = *source++);
     return dest;
 }
