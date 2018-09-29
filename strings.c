@@ -15,6 +15,7 @@ char* my_strcat(char *dest, char *source)
     // decrement because p++ makes p now point to the character
     // after the null terminator, which we need to write over
     p--;
+    // keep copying bytes, stopping after \0 is copied
     while (*p++ = *source++);
     return dest;
 }
@@ -31,7 +32,7 @@ char* my_strchr(char *s, char c)
     while (*s++);
 }
 
-char* my_strncpy(char *dest, char *source, int num )
+char* my_strncpy(char *dest, char *source, int num)
 {
   char *p = dest;
   int i = 0;
