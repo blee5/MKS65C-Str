@@ -35,7 +35,7 @@ void test_strcat()
 {
     printf("====Testing my_strcat()====\n");
 
-    test_strcat_case("Do you remember", " the 21sth night of September?");
+    test_strcat_case("Do you remember", " the 21st night of September?");
     test_strcat_case("Stop, collaborate and listen", "");
     test_strcat_case("", "Stop, hammer time");
 }
