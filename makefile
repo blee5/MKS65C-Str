@@ -2,6 +2,7 @@ all: strings.o test.o
 	gcc strings.o test.o -o string_functions_test
 
 run: all 
+	clear
 	./string_functions_test
 
 test.o: test.c strings.h

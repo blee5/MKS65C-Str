@@ -1,4 +1,4 @@
-int my_strlen(const char *s)
+int my_strlen(char *s)
 {
     int len = 0;
     while (*s++)
@@ -8,7 +8,7 @@ int my_strlen(const char *s)
     return len;
 }
 
-char* my_strcat(char *dest, const char *source)
+char* my_strcat(char *dest, char *source)
 {
     char *p = dest;
     while (*p++);
@@ -17,4 +17,16 @@ char* my_strcat(char *dest, const char *source)
     p--;
     while (*p++ = *source++);
     return dest;
+}
+
+char* my_strchr(char *s, char c)
+{
+    do
+    {
+        if (*s == c)
+        {
+            return s;
+        }
+    }
+    while (*s++);
 }
