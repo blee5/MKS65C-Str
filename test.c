@@ -52,8 +52,8 @@ void test_strchr()
     printf("====Testing my_strchr()====\n");
 
     test_strchr_case("We haven't had that spirit since 1969", 'r');
-    test_strchr_case("Everybody will be dancing and we'll be", 'h');
-    test_strchr_case("Can't stop me now", 'C');
+    test_strchr_case("Everybody will be dancing and", 'h');
+    test_strchr_case("Come on and slam", 'C');
     test_strchr_case("", 'p');
     printf("Note: searching for null terminator\n");
     test_strchr_case("Black hole sun", '\0');
