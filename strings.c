@@ -31,7 +31,6 @@ char* my_strchr(char *s, char c)
     while (*s++);
 }
 
-//Alex
 char* my_strncpy(char *dest, char *source, int num )
 {
   char *p = dest;

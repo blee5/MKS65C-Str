@@ -5,11 +5,10 @@
 void test_strlen_case(char* s)
 {
     printf("Test Case: \"%s\"\n", s);
-    printf("[mine]: %d\n", my_strlen(s));
-    printf("[standard]: %ld\n\n", strlen(s));
+    printf("[standard]: %ld\n", strlen(s));
+    printf("[mine]: %d\n\n", my_strlen(s));
 }
 
-//Brian
 void test_strlen()
 {
     printf("====Testing my_strlen()====\n");
@@ -27,8 +26,9 @@ void test_strcat_case(char* dest_str, char* src)
     char dest1[255];
     char dest2[255];
     strcpy(dest1, dest_str); strcpy(dest2, dest_str);
-    printf("[mine]: %s\n", my_strcat(dest1, src));
-    printf("[standard]: %s\n\n", strcat(dest2, src));
+    printf("Test Case: \"%s\" + \"%s\"\n", dest_str, src);
+    printf("[standard]: %s\n", strcat(dest2, src));
+    printf("[mine]: %s\n\n", my_strcat(dest1, src));
 }
 
 void test_strcat()
@@ -43,8 +43,8 @@ void test_strcat()
 void test_strchr_case(char* s, char target)
 {
     printf("Test Case: \"%s\", searching for '%c'\n", s, target);
-    printf("[mine]: %p\n", my_strchr(s, target));
-    printf("[standard]: %p\n\n", strchr(s, target));
+    printf("[standard]: %p\n", strchr(s, target));
+    printf("[mine]: %p\n\n", my_strchr(s, target));
 }
 
 void test_strchr()
@@ -59,29 +59,29 @@ void test_strchr()
     test_strchr_case("Black hole sun", '\0');
 }
 
-//Alex
+void test_strncpy_case(char *dest, char *src, int n)
+{
+    char dest1[255];
+    char dest2[255];
+    strcpy(dest1, dest); strcpy(dest2, dest);
+    printf("Test Case: \"%s\" <- \"%s\", copying %d bytes\n", dest, src, n);
+    printf("[standard]: %s\n", strncpy(dest2, src, n));
+    printf("[mine]: %s\n\n", my_strncpy(dest1, src, n));
+}
+
 void test_strncpy()
 {
     // TODO: more test cases
-    char dest1[255];
-    char dest2[255];
-    char *replace;
 
     printf("====Testing my_strncpy()====\n");
-    char *test1 = "I really like you";
-    replace = "I don't  like you";
-    strcpy(dest1, test1); strcpy(dest2, test1);
-    printf("[standard]: %s\n\n", strncpy(dest2, replace, 8));
-    printf("[mine]: %s\n", my_strncpy(dest1, replace, 8));
+    test_strncpy_case("I really like you", "I don't like you", 8);
 }
 
 int main()
 {
-    //Brian
     test_strlen();
     test_strcat();
     test_strchr();
-    //Alex
     test_strncpy();
     return 0;
 }
