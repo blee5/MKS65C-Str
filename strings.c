@@ -39,7 +39,7 @@ char* my_strncpy(char *dest, char *source, int num)
   while (*p && i != num)
   {
     i++;
-    *p = *source++;
+    *p++ = *source++;
   }
   return dest;
 }
