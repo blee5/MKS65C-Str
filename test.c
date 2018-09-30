@@ -127,11 +127,10 @@ void test_strstr()
 {
     printf("====Testing my_strstr()====\n");
 
-    test_strstr_case("We haven't had that spirit since 1969", 'r');
-    test_strstr_case("We haven't had that spirit since 1969", 'rit');
-    test_strstr_case("Everybody will be dancing and", 'home');
-    test_strstr_case("Come on and slam", 'Come');
-    test_strstr_case("Come on and slam", 'slam');
+    test_strstr_case("We haven't had that spirit since 1969", "r");
+    test_strstr_case("We haven't had that spirit since 1969", "rit");
+    test_strstr_case("Everybody will be dancing and", "home");
+    test_strstr_case("Come on and slam", "Clam");
     test_strstr_case("", 'p');
     printf("Note: searching for null terminator\n");
     test_strstr_case("Black hole sun", '\0');
