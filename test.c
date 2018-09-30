@@ -2,6 +2,8 @@
 #include <string.h>
 #include "strings.h"
 
+
+//strlen
 void test_strlen_case(char* s)
 {
     printf("Test Case: \"%s\"\n", s);
@@ -21,6 +23,8 @@ void test_strlen()
     test_strlen_case(s2);
 }
 
+
+//strcat
 void test_strcat_case(char* dest_str, char* src)
 {
     char dest1[255];
@@ -40,6 +44,8 @@ void test_strcat()
     test_strcat_case("", "Stop, hammer time");
 }
 
+
+//strchr
 void test_strchr_case(char* s, char target)
 {
     printf("Test Case: \"%s\", searching for '%c'\n", s, target);
@@ -59,11 +65,12 @@ void test_strchr()
     test_strchr_case("Black hole sun", '\0');
 }
 
+//strncpy
 void test_strncpy_case(char *dest, char *src, int n)
 {
     char dest1[25];
     char dest2[25];
-    strcpy(dest1, dest); strcpy(dest2, dest); 
+    strcpy(dest1, dest); strcpy(dest2, dest);
     printf("Test Case: \"%s\" <- \"%s\", copying %d bytes\n", dest, src, n);
     printf("[standard]: %s\n", strncpy(dest2, src, n));
     printf("[mine]: %s\n\n", my_strncpy(dest1, src, n));
@@ -77,7 +84,56 @@ void test_strncpy()
     test_strncpy_case("", "use,", 3);
     test_strncpy_case("break", "", 0);
     test_strncpy_case("fix", ".", 0);
-    test_strncpy_case("trash", "123456789.123456789.123456789.", 30);
+    //test_strncpy_case("trash", "123456789.123456789.123456789.", 30);
+}
+
+//strncmp
+void test_strcmp_case(char *dest, char *src)
+{
+    char dest1[25];
+    char dest2[25];
+    strcpy(dest1, dest); strcpy(dest2, dest);
+    printf("Test Case: \"%s\" : \"%s\", comparing \n" , dest, src);
+    printf("[standard]: %d\n", strcmp(dest2, src));
+    printf("[mine]: %d\n\n", my_strcmp(dest1, src));
+}
+
+void test_strcmp()
+{
+    printf("====Testing my_strcmp()====\n");
+    test_strcmp_case("hello", "hello");
+    test_strcmp_case("a", "b");
+    test_strcmp_case("aaa", "bbb");
+    test_strcmp_case("aaa", "baa");
+    test_strcmp_case("......", "one");
+    test_strcmp_case("", "two,");
+    test_strcmp_case("three", "");
+    test_strcmp_case("four", ".");
+    test_strcmp_case("five", "123456789.123456789.123456789.");
+    test_strcmp_case("hello", "hel");
+    test_strcmp_case("I really like you", "I don't like you");
+    test_strcmp_case("aaa", "aad");
+}
+
+//strchr
+void test_strstr_case(char* s, char* target)
+{
+    printf("Test Case: \"%s\", searching for '%c'\n", s, target);
+    printf("[standard]: %p\n", strstr(s, target));
+    printf("[mine]: %p\n\n", my_strstr(s, target));
+}
+
+void test_strstr()
+{
+    printf("====Testing my_strstr()====\n");
+
+    test_strstr_case("We haven't had that spirit since 1969", 'rit');
+    test_strstr_case("Everybody will be dancing and", 'home');
+    test_strstr_case("Come on and slam", 'Come');
+    test_strstr_case("Come on and slam", 'slam');
+    test_strstr_case("", 'p');
+    printf("Note: searching for null terminator\n");
+    test_strstr_case("Black hole sun", '\0');
 }
 
 int main()
@@ -86,5 +142,7 @@ int main()
     test_strcat();
     test_strchr();
     test_strncpy();
+    test_strcmp();
+    test_strstr();
     return 0;
 }

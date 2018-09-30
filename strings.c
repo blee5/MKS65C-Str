@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <string.h>
+
+
 int my_strlen(char *s)
 {
     int len = 0;
@@ -35,7 +39,7 @@ char* my_strchr(char *s, char c)
 char* my_strncpy(char *dest, char *source, int num)
 {
   char *p = dest;
-  int i = 0;
+  int i;
   // It'd be a good idea to stop copying if the null terminator is found in dest,
   // but the original strncpy() doesn't, so it just keeps copying bytes into
   // unrelated memory just like strncpy() ¯\_(ツ)_/¯
@@ -44,4 +48,46 @@ char* my_strncpy(char *dest, char *source, int num)
     *p++ = *source++;
   }
   return dest;
+}
+
+signed int my_strcmp(char *first, char *second)
+{
+  char *p = first;
+  char *q = second;
+  int i = 0;
+  //finds the first difference among the two strings
+  while (*p == *q && *p && *q){
+    p ++;
+    q ++;
+  }
+  //compares the first difference if it exists
+  //if greater
+  if (*p > *q){
+    while ((*p - i) != *q){
+      i++;
+    }
+    return i;
+  }
+  //if less
+  else if (*p < *q){
+    while ((*p + i) != *q){
+      i++;
+    }
+    return -i;
+  }
+  //if difference doesn't exist
+  else {
+    return 0;
+  }
+}
+
+
+char* my_strstr(char *source, char *target)
+{
+  char *p = source;
+  char *q = target;
+  while (*p && *q){
+    return strchr(source, *q);
+    q++;
+  }
 }
