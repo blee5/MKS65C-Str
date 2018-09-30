@@ -77,7 +77,6 @@ void test_strncpy()
     test_strncpy_case("", "use,", 3);
     test_strncpy_case("break", "", 0);
     test_strncpy_case("fix", ".", 0);
-    printf("Note: src larger than dest array (has len 25)\n");
     test_strncpy_case("trash", "123456789.123456789.123456789.", 30);
 }
 
