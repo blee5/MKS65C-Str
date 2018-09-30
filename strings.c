@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 int my_strlen(char *s)
 {
     int len = 0;
@@ -34,6 +33,7 @@ char* my_strchr(char *s, char c)
         }
     }
     while (*s++);
+    return NULL;
 }
 
 char* my_strncpy(char *dest, char *source, int num)
@@ -84,23 +84,28 @@ signed int my_strcmp(char *first, char *second)
 
 char* my_strstr(char *source, char *target)
 {
-  char *p = source;
-  char *q = target;
-  //ends while loops when *p ends
-  while (*p) {
-    //if value equals
-    if (*p == *q){
-      int i = 0;
-      //checks to see if whole string is there
-      /*while loop terminates if they values are = or p doesnt
-      contain the whole string */
-      while (*(p + i) == *(q +i) && i++ < strlen(q) && *(p + i)){
-        if(i == strlen(q) - 1){
-          return p;
+    int tar_len = strlen(target);
+    //ends while loops when *p ends
+    while (*source++)
+    {
+        if (*source == *target)
+        {
+              int i;
+              for (i = 0; i < tar_len; i++)
+                  {
+                  if (source[i] && source[i] == target[i])
+                  {
+                      if (i == tar_len - 1)
+                      {
+                          return source;
+                      }
+                  }
+                  else
+                  {
+                      break;
+                  }
+              }
         }
-      }
     }
-    //checks the next value in the *p
-    p++;
-  }
+    return NULL;
 }
