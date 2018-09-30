@@ -61,9 +61,9 @@ void test_strchr()
 
 void test_strncpy_case(char *dest, char *src, int n)
 {
-    char dest1[255];
-    char dest2[255];
-    strcpy(dest1, dest); strcpy(dest2, dest);
+    char dest1[25];
+    char dest2[25];
+    strcpy(dest1, dest); strcpy(dest2, dest); 
     printf("Test Case: \"%s\" <- \"%s\", copying %d bytes\n", dest, src, n);
     printf("[standard]: %s\n", strncpy(dest2, src, n));
     printf("[mine]: %s\n\n", my_strncpy(dest1, src, n));
@@ -71,10 +71,14 @@ void test_strncpy_case(char *dest, char *src, int n)
 
 void test_strncpy()
 {
-    // TODO: more test cases
-
     printf("====Testing my_strncpy()====\n");
     test_strncpy_case("I really like you", "I don't like you", 8);
+    test_strncpy_case("......", "buy", 10);
+    test_strncpy_case("", "use,", 3);
+    test_strncpy_case("break", "", 0);
+    test_strncpy_case("fix", ".", 0);
+    printf("Note: src larger than dest array (has len 25)\n");
+    test_strncpy_case("trash", "123456789.123456789.123456789.", 30);
 }
 
 int main()

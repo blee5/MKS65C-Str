@@ -36,9 +36,11 @@ char* my_strncpy(char *dest, char *source, int num)
 {
   char *p = dest;
   int i = 0;
-  while (*p && i != num)
+  // It'd be a good idea to stop copying if the null terminator is found in dest,
+  // but the original strncpy() doesn't, so it just keeps copying bytes into
+  // unrelated memory just like strncpy() ¯\_(ツ)_/¯
+  for (i = 0; i != num; i++)
   {
-    i++;
     *p++ = *source++;
   }
   return dest;
