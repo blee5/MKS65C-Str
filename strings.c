@@ -85,6 +85,10 @@ signed int my_strcmp(char *first, char *second)
 char* my_strstr(char *source, char *target)
 {
     int tar_len = strlen(target);
+    if (*target == 0)
+    {
+        return source;
+    }
     //ends while loops when *p ends
     while (*source++)
     {
