@@ -116,17 +116,18 @@ void test_strcmp()
 }
 
 //strchr
-void test_strstr_case(char* s, char* target)
+void test_strstr_case(const char* s, const char* target)
 {
     printf("Test Case: \"%s\", searching for '%c'\n", s, target);
-    printf("[standard]: %p\n", strstr(s, target));
-    printf("[mine]: %p\n\n", my_strstr(s, target));
+    printf("[standard]: %s\n", strstr(s, target));
+    printf("[mine]: %s\n\n", my_strstr(s, target));
 }
 
 void test_strstr()
 {
     printf("====Testing my_strstr()====\n");
 
+    test_strstr_case("We haven't had that spirit since 1969", 'r');
     test_strstr_case("We haven't had that spirit since 1969", 'rit');
     test_strstr_case("Everybody will be dancing and", 'home');
     test_strstr_case("Come on and slam", 'Come');

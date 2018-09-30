@@ -86,8 +86,21 @@ char* my_strstr(char *source, char *target)
 {
   char *p = source;
   char *q = target;
-  while (*p && *q){
-    return strchr(source, *q);
-    q++;
+  //ends while loops when *p ends
+  while (*p) {
+    //if value equals
+    if (*p == *q){
+      int i = 0;
+      //checks to see if whole string is there
+      /*while loop terminates if they values are = or p doesnt
+      contain the whole string */
+      while (*(p + i) == *(q +i) && i++ < strlen(q) && *(p + i)){
+        if(i == strlen(q) - 1){
+          return p;
+        }
+      }
+    }
+    //checks the next value in the *p
+    p++;
   }
 }
